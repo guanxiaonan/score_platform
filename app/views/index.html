@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%- title%></title>
+  <%- include('./includes/head.html') %>
+  <!--  media指定媒介值，默认打印在屏幕上的格式-->
+  <style media="screen">
+    body {
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+  </style>
+
+</head>
+<body>
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">学生调剂申请成绩管理系统</a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse navbar-right">
+        <!-- <a class="navbar-brand" href="/login">登录</a> -->
+        <!-- <a class="navbar-brand" href="/register">注册</a> -->
+      </div><!--/.navbar-collapse -->
+    </div>
+  </nav>
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <h1>欢迎使用本系统！</h1>
+
+      <p><a class="btn btn-primary btn-lg" href="/main_test" role="button">进入 &raquo;</a></p>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+      <p>此处插入一张图片</p>
+    </div>
+
+    <hr>
+
+    <footer>
+      <p>&copy; 2016 Company, Inc.</p>
+    </footer>
+  </div> <!-- /container -->
+</body>
+</html>
