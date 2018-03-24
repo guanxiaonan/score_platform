@@ -15,7 +15,7 @@ export default class User{
   static async insert(ctx, next) {
     // 判断数据输入
     let new_data = ctx;
-    //console.log(new_data)
+    console.log(new_data)
 
     //判断用户名和密码是否为空;
     if(new_data.username !== '') {    //判断用户名是否为空
@@ -23,7 +23,7 @@ export default class User{
         let login_data = {};
 
         //判断用户是否已被锁定
-        let user_data = await knex('core_account')
+        let user_data = await knex('user_score')
                     .select('salt', 'status')
                     .where('username', new_data.username);
 
@@ -36,16 +36,16 @@ export default class User{
 				login_data.username = new_data.username;
 				login_data.password =await md5(md5(new_data.password) + user_data.salt);
 
-        if( new_data.optionsRadios === 'option1') {
-
-          login_data.type = 1;
-        } else if( new_data.optionsRadios === 'option2'){
-
-          login_data.type = 2;
-        } else if( new_data.optionsRadios === 'option3'){
-
-          login_data.type = 3;
-        }
+        // if( new_data.optionsRadios === 'option1') {
+        //
+        //   login_data.type = 1;
+        // } else if( new_data.optionsRadios === 'option2'){
+        //
+        //   login_data.type = 2;
+        // } else if( new_data.optionsRadios === 'option3'){
+        //
+        //   login_data.type = 3;
+        // }
         //console.log(login_data);
 
         let result = await knex('core_account')

@@ -36,15 +36,33 @@
   <div class="jumbotron">
     <div class="container">
       <h1>欢迎使用本系统！</h1>
+      <p><a class="btn btn-primary btn-lg" href="/main_test" role="button">Learn more &raquo;</a></p>
 
-      <p><a class="btn btn-primary btn-lg" href="/main_test" role="button">进入 &raquo;</a></p>
     </div>
   </div>
 
   <div class="container">
+    <!-- 记住一定要将属性 method写上 -->
+    <form action ="/login" class=" form-inline " role='form' data-toggle='validator' method='post'>
+      <div class="form-group">
+        <label for="username">User Name</label>
+        <input type="username" name="username" id="username" placeholder="username" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" placeholder="password" class="form-control">
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox">Remember me
+        </label>
+      </div>
+      
+      <button type="submit" class="btn btn-primary btn-lg">登录</button>
+    </form>
     <!-- Example row of columns -->
     <div class="row">
-      <p>此处插入一张图片</p>
+      <p></p>
     </div>
 
     <hr>

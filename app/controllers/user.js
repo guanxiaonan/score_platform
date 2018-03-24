@@ -11,12 +11,12 @@ exports.index = async function(ctx, next){
  })
 }
 
-exports.showLogin = async function(ctx, next) {
-  await ctx.render('pages/user/login', {
-    title: '用户登录',
-    info: ''
-  });
-}
+// exports.showLogin = async function(ctx, next) {
+//   await ctx.render('pages/user/login', {
+//     title: '用户登录',
+//     info: ''
+//   });
+// }
 
 exports.showRegister = async function(ctx, next) {
   await ctx.render('pages/user/register', {
@@ -27,15 +27,16 @@ exports.showRegister = async function(ctx, next) {
 
 //login
 exports.login = async function(ctx, next){
+  console.log("============run=============");
   let user_data = ctx.request.body;
-
+  console.log(ctx.request);
   //存储数据到数据库
   let result = await User.insert(user_data);
 
   //当用户名为空时
   if(result === 'usernameIsNull') {
     ctx.render('pages/user/login', {
-      title: '用户登录',
+      title: 'scorePlatform',
       info: '用户名不能为空，请重新输入'
     })
   }
@@ -43,7 +44,7 @@ exports.login = async function(ctx, next){
   //当用密码为空时
   if(result === 'passwordIsNull') {
     ctx.render('pages/user/login', {
-      title: '用户登录',
+      title: 'scorePlatform',
       info: '密码不能为空，请重新输入'
     })
   }
@@ -51,7 +52,7 @@ exports.login = async function(ctx, next){
   //密码错误
   if(result === 'passwordIsWrong') {
     ctx.render('pages/user/login', {
-      title: '用户登录',
+      title: 'scorePlatform',
       info: '密码错误，请重新输入'
     })
   }
@@ -61,20 +62,23 @@ exports.login = async function(ctx, next){
   //验证成功
   if(result === 'success') {
     ctx.session.user = user_data.username;
-    //console.log(ctx.session);
-    if(user_data.optionsRadios === 'option1') {
-      await ctx.redirect('/individual/main')
-    }
 
-    if(user_data.optionsRadios === 'option2') {
-      await ctx.redirect('/company/main')
-    }
 
-    if(user_data.optionsRadios === 'option3') {
-      //console.log(12)
-      await ctx.redirect('/official/main')
-    }
+    // //console.log(ctx.session);
+    // if(user_data.optionsRadios === 'option1') {
+    //   await ctx.redirect('/individual/main')
+    // }
+
+    // if(user_data.optionsRadios === 'option2') {
+      await ctx.redirect('/test/main')
+    // }
+
+  //   if(user_data.optionsRadios === 'option3') {
+  //     //console.log(12)
+  //     await ctx.redirect('/official/main')
+  //   }
   }
+
 }
 
 //register
