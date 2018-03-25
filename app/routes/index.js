@@ -17,4 +17,5 @@ router
   .post('/login', User.login)           //用户登录操作
   .post('/register', User.register)     //用户注册操作
   .get('/main_test', Test.main_test)   //查看原始的学生成绩
+  // .get('/test/main')
 export default router;
