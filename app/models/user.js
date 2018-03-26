@@ -15,7 +15,7 @@ export default class User{
   static async insert(ctx, next) {
     // 判断数据输入
     let new_data = ctx;
-    console.log(new_data)
+    console.log("new_data=======",new_data);
 
     //判断用户名和密码是否为空;
     if(new_data.username !== '') {    //判断用户名是否为空
@@ -23,18 +23,23 @@ export default class User{
         let login_data = {};
 
         //判断用户是否已被锁定
-        let user_data = await knex('user_score')
-                    .select('salt', 'status')
+        let user_data = await knex('users_score')
+                    .select('password')
                     .where('username', new_data.username);
-
-        //console.log(user_data)
-        user_data = user_data[0];
-        if(user_data.status === 0) {
-          return 'userIsLocked';
+          // console.log("============run=============");
+          console.log("数据库取密码",user_data);
+        // console.log(user_data);
+        // user_data = user_data[0];
+        // if(user_data.status === 0) {
+        //   return 'userIsLocked';
+        // }
+        if(user_data.length == 0){
+          console.log("用户名错误");
+          return 'usernameIsWrong';
         }
 
 				login_data.username = new_data.username;
-				login_data.password =await md5(md5(new_data.password) + user_data.salt);
+				login_data.password =new_data.password;
 
         // if( new_data.optionsRadios === 'option1') {
         //
@@ -48,11 +53,11 @@ export default class User{
         // }
         //console.log(login_data);
 
-        let result = await knex('core_account')
+        let result = await knex('users_score')
                           .where({'username': login_data.username,
-                                  'password': login_data.password,
-                                  'type': login_data.type});
-
+                                  'password': login_data.password
+                                  });
+            console.log("数据库取出的结果：",result);
         if(result.length > 0) {
           return 'success';
         } else {
@@ -63,6 +68,7 @@ export default class User{
         return 'passwordIsNull';
       }
     } else {
+      // console.log("run==================");
       return 'usernameIsNull';
     }
   }

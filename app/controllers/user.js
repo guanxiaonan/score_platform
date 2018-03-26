@@ -7,7 +7,8 @@ exports.index = async function(ctx, next){
   //点击'Project name'， 回到主页，同时删除缓存session
   delete ctx.session.user;
   await ctx.render('index', {   //默认后缀名为html
-   title: 'scorePlatform'
+   title: 'scorePlatform',
+   info:''
  })
 }
 
@@ -27,23 +28,29 @@ exports.showRegister = async function(ctx, next) {
 
 //login
 exports.login = async function(ctx, next){
-  console.log("============run=============");
+  // console.log("============run=============");
   let user_data = ctx.request.body;
-  console.log(ctx.request);
+  // console.log("user_data===",user_data);
   //存储数据到数据库
   let result = await User.insert(user_data);
 
   //当用户名为空时
   if(result === 'usernameIsNull') {
-    ctx.render('pages/user/login', {
+   await ctx.render('index', {
       title: 'scorePlatform',
       info: '用户名不能为空，请重新输入'
     })
   }
-
+  //当用户名错误时
+  if(result === 'usernameIsWrong') {
+   await ctx.render('index', {
+      title: 'scorePlatform',
+      info: '用户名错误，请重新输入'
+    })
+  }
   //当用密码为空时
   if(result === 'passwordIsNull') {
-    ctx.render('pages/user/login', {
+    await ctx.render('index', {
       title: 'scorePlatform',
       info: '密码不能为空，请重新输入'
     })
@@ -51,7 +58,7 @@ exports.login = async function(ctx, next){
 
   //密码错误
   if(result === 'passwordIsWrong') {
-    ctx.render('pages/user/login', {
+    await ctx.render('index', {    //注意必须加 await
       title: 'scorePlatform',
       info: '密码错误，请重新输入'
     })
@@ -70,7 +77,7 @@ exports.login = async function(ctx, next){
     // }
 
     // if(user_data.optionsRadios === 'option2') {
-      await ctx.redirect('/test/main')
+      await ctx.redirect('/main_test');
     // }
 
   //   if(user_data.optionsRadios === 'option3') {

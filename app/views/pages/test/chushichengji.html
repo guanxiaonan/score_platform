@@ -151,14 +151,18 @@
 
         <div class="row placeholders">
 
-          <form name="biaodan2" method="post" action="/chengji_tijiao"><!-- 建表 -->
+          <form name="biaodan2" method="post" action="/cschengji_tijiao"><!-- 建表 -->
           <table class="table table-striped">
           <tr>
             <td>姓名</td><td>英语</td><td>政治</td><td>专业课</td><td>数学</td><td>总分</td></tr>
             <tr>
-            <td><input type="text"/><td><input type="number"/></td><td><input type="number"/></td><td><input type="number"/></td><td><input type="number"/></td><td><input type="number"/></td>
+              <td><input name="name" id="name" type="text"/></td>
+              <td><input name="english" id="english" type="number"/></td>
+              <td><input name="political" id="political" type="number"/></td>
+              <td><input name="zhuanye" id="zhaungye" type="number"/></td>
+              <td><input name="math" id="math" type="number"/></td>
+              <td><input name="total_score" id="total_score" type="number"/></td>
           </tr>
-
         </table>
         <input type="submit"value="提交页面" ation="chengji_tijiao">
       </form>
