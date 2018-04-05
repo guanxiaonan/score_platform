@@ -8,7 +8,7 @@
         <link rel="stylesheet" type="text/css" href="assets/css/material-design.css">
         <link rel="stylesheet" type="text/css" href="assets/css/small-n-flat.css">
         <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
-        <title>学生总体成绩评估</title>
+        <title>学生能力考察</title>
         <style>
           a:link{color:black}
         </style>
@@ -29,7 +29,7 @@
                               <ul>
                                   <li><a href="/record">学生档案</a></li>
                                   <li><a href="first_test_score">初试成绩</a></li>
-                                  <li><a href="/ability_examination">能力考查</a></li>
+                                  <li><a href="#">能力考查</a></li>
                                   <li><a href="/score_analysis">总体评估</a></li>
                               </ul>
                           </li>
@@ -42,7 +42,7 @@
             <nav class="cm-navbar cm-navbar-primary">
                 <div class="btn btn-primary md-menu-white hidden-md hidden-lg" data-toggle="cm-menu"></div>
                 <div class="cm-flex">
-                    <h1>浙江理工大学</h1>
+                    <h1>能力评估</h1>
                     <form id="cm-search" action="index.html" method="get">
                         <input type="search" name="q" autocomplete="off" placeholder="Search...">
                     </form>
@@ -102,9 +102,9 @@
                 <div class="cm-flex">
                     <div class="nav-tabs-container">
                         <ul class="nav nav-tabs">
-                          <li><a href="/score_analysis">学生成绩分析</a></li>
+                          <!-- <li><a href="/score_analysis">学生成绩分析</a></li> -->
                           <!-- <li><a href="/score_yuanshi">原始各项评分</a></li> -->
-                          <li class="active"><a href="/score_zuizhong">最终评分</a></li>
+                          <li class="active"><a href="#">能力评估</a></li>
                         </ul>
                     </div>
                 </div>
@@ -115,38 +115,21 @@
         <div id="global">
             <div class="container-fluid">
                 <div class="panel panel-default">
-              <div class="row">
-                <!-- <div class="col-md-6"> -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">最终成绩输出表</div>
-                        <div class="panel-body">
-                            <p style="margin-bottom:0"><a href="/score_final_show"><h5>点击查看成绩</h5></a></p>
+                    <div class="panel-heading">能力评估</div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label>问题</label>
+                            <input type="text" class="form-control" placeholder="Enter title">
                         </div>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>名次</th>
-                                    <th>姓名</th>
-                                    <th>学号</th>
-                                    <th>性别</th>
-                                    <th>总分</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                              <% for(var i=0;i<fslist.length;i++){ %>
-                              <tr>
-                                <td><%= fslist[i].fsid %></td>
-                                <td><%= fslist[i].name %></td>
-                                <td><%= fslist[i].initialID %></td>
-                                <td><%= fslist[i].sex %></td>
-                                <td><%= fslist[i].score %></td>
-                              <% } %>
-                            </tr>
-                            </tbody>
-                        </table>
+                        <label>回答</label>
+                        <div id="summernote"></div>
+                        <div class="form-group text-right" style="margin-top:20px">
+                            <button type="submit" class="btn btn-default">提交</button>
+                            <button type="submit" class="btn btn-primary">保存</button>
+                        </div>
                     </div>
-                  </div>
-              </div>
+
+                </div>
             </div>
             <footer class="cm-footer"><span class="pull-left">浙江理工大学</span><span class="pull-right">&copy; gyn&cl</span></footer>
         </div>
@@ -156,5 +139,7 @@
         <script src="assets/js/fastclick.min.js"></script>
         <script src="assets/js/bootstrap.min.js"></script>
         <script src="assets/js/clearmin.min.js"></script>
+        <script src="assets/js/summernote.min.js"></script>
+        <script src="assets/js/demo/notepad.js"></script>
     </body>
-</html>
+    </html>

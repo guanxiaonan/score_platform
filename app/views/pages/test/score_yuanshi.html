@@ -24,7 +24,15 @@
                     <div id="cm-menu-scroller">
                         <ul class="cm-menu-items">
                             <li><a href="/main_test" class="sf-house">Home</a></li>
-                            <li class="active"><a href="dashboard-sales.html" class="sf-dashboard">学生总体成绩评估</a></li>
+                            <li class="cm-submenu">
+                              <a class="sf-window-layout">我的系统<span class="caret"></span></a>
+                              <ul>
+                                  <li><a href="/record">学生档案</a></li>
+                                  <li><a href="first_test_score">初试成绩</a></li>
+                                  <li><a href="/ability_examination">能力考查</a></li>
+                                  <li><a href="/score_analysis">总体评估</a></li>
+                              </ul>
+                          </li>
                         </ul>
                     </div>
                 </div>
@@ -75,7 +83,7 @@
                     <button class="btn btn-primary md-account-circle-white" data-toggle="dropdown"></button>
                     <ul class="dropdown-menu">
                         <li class="disabled text-center">
-                            <a style="cursor:default;"><strong>John Smith</strong></a>
+                            <a style="cursor:default;"><strong><%- user%></strong></a>
                         </li>
                         <li class="divider"></li>
                         <li>
@@ -85,7 +93,7 @@
                             <a href="#"><i class="fa fa-fw fa-cog"></i> Settings</a>
                         </li>
                         <li>
-                            <a href="login.html"><i class="fa fa-fw fa-sign-out"></i> Sign out</a>
+                            <a href="/logout"><i class="fa fa-fw fa-sign-out"></i> Sign out</a>
                         </li>
                     </ul>
                 </div>
@@ -173,7 +181,7 @@
                     </div>
                 </div>
             </div>
-            <footer class="cm-footer"><span class="pull-left">Connected as John Smith</span><span class="pull-right">&copy; PAOMEDIA SARL</span></footer>
+            <footer class="cm-footer"><span class="pull-left">浙江理工大学</span><span class="pull-right">&copy; gyn&cl</span></footer>
         </div>
         <script src="assets/js/lib/jquery-2.1.3.min.js"></script>
         <script src="assets/js/jquery.mousewheel.min.js"></script>

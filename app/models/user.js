@@ -23,6 +23,8 @@ export default class User{
         let login_data = {};
 
         //判断用户是否已被锁定
+        //这个语句可以查询特定字段中任何一条属性中的任何一个值
+        //下面select和where 顺序是可以改变的
         let user_data = await knex('users_score')
                     .select('password')
                     .where('username', new_data.username);
@@ -114,7 +116,8 @@ export default class User{
         } else if( new_data.optionsRadios === 'option3'){
           insert_data.type = 3;
         }
-
+          //插入方法默认返回id,也可以通过 returnong（column）/returning([column1，column2...])来指定
+          //数据插入的格式是 json格式的
         let result = await knex('core_account')
                             .insert(insert_data);
 

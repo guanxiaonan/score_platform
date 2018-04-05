@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-module.exports = {
+module.exports = {        //添加库 使用 require()可以进行调用
   client: 'mysql',                //数据库类型
   connection: {
     host: 'localhost',            //数据库地址

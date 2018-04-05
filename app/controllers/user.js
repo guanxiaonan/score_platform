@@ -33,7 +33,7 @@ exports.login = async function(ctx, next){
   // console.log("user_data===",user_data);
   //存储数据到数据库
   let result = await User.insert(user_data);
-
+  console.log(result);
   //当用户名为空时
   if(result === 'usernameIsNull') {
    await ctx.render('index', {
@@ -70,20 +70,7 @@ exports.login = async function(ctx, next){
   if(result === 'success') {
     ctx.session.user = user_data.username;
 
-
-    // //console.log(ctx.session);
-    // if(user_data.optionsRadios === 'option1') {
-    //   await ctx.redirect('/individual/main')
-    // }
-
-    // if(user_data.optionsRadios === 'option2') {
       await ctx.redirect('/main_test');
-    // }
-
-  //   if(user_data.optionsRadios === 'option3') {
-  //     //console.log(12)
-  //     await ctx.redirect('/official/main')
-  //   }
   }
 
 }

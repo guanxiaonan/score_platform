@@ -8,7 +8,7 @@
         <link rel="stylesheet" type="text/css" href="assets/css/material-design.css">
         <link rel="stylesheet" type="text/css" href="assets/css/small-n-flat.css">
         <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
-        <title>学生总体成绩评估</title>
+        <title>学生初试成绩</title>
         <style>
           a:link{color:black}
         </style>
@@ -42,7 +42,7 @@
             <nav class="cm-navbar cm-navbar-primary">
                 <div class="btn btn-primary md-menu-white hidden-md hidden-lg" data-toggle="cm-menu"></div>
                 <div class="cm-flex">
-                    <h1>浙江理工大学</h1>
+                    <h1>初试成绩</h1>
                     <form id="cm-search" action="index.html" method="get">
                         <input type="search" name="q" autocomplete="off" placeholder="Search...">
                     </form>
@@ -102,9 +102,9 @@
                 <div class="cm-flex">
                     <div class="nav-tabs-container">
                         <ul class="nav nav-tabs">
-                          <li><a href="/score_analysis">学生成绩分析</a></li>
-                          <!-- <li><a href="/score_yuanshi">原始各项评分</a></li> -->
-                          <li class="active"><a href="/score_zuizhong">最终评分</a></li>
+                          <li><a href="/first_test_score">初试成绩输入</a></li>
+                          <li class="active"><a href="#">查看成绩</a></li>
+                          <!-- <li class="active"><a href="/score_zuizhong">最终评分</a></li> -->
                         </ul>
                     </div>
                 </div>
@@ -120,26 +120,28 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">最终成绩输出表</div>
                         <div class="panel-body">
-                            <p style="margin-bottom:0"><a href="/score_final_show"><h5>点击查看成绩</h5></a></p>
+                            <p style="margin-bottom:0"><a href="/fts_show_chakan"><h5>点击查看成绩</h5></a></p>
                         </div>
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>名次</th>
-                                    <th>姓名</th>
-                                    <th>学号</th>
-                                    <th>性别</th>
-                                    <th>总分</th>
+                                  <th>姓名</th>
+                                  <th>英语</th>
+                                  <th>政治</th>
+                                  <th>专业课</th>
+                                  <th>数学</th>
+                                  <th>总分</th>
                                 </tr>
                             </thead>
                             <tbody>
-                              <% for(var i=0;i<fslist.length;i++){ %>
+                              <% for(var i=0;i<ftslist.length;i++){ %>
                               <tr>
-                                <td><%= fslist[i].fsid %></td>
-                                <td><%= fslist[i].name %></td>
-                                <td><%= fslist[i].initialID %></td>
-                                <td><%= fslist[i].sex %></td>
-                                <td><%= fslist[i].score %></td>
+                                <td><%= ftslist[i].name %></td>
+                                <td><%= ftslist[i].english %></td>
+                                <td><%= ftslist[i].political %></td>
+                                <td><%= ftslist[i].zhuanye %></td>
+                                <td><%= ftslist[i].math %></td>
+                                <td><%= ftslist[i].total_score %></td>
                               <% } %>
                             </tr>
                             </tbody>
